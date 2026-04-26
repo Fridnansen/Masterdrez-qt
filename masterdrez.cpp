@@ -1,5 +1,5 @@
 #include "masterdrez.h"
 
-const char *MASTERDREZ_VERSION = "3.5.2.1";
+MTRand mtRandom;
 
 t_masterdrez objMasterdrez;

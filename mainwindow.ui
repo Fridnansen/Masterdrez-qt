@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>648</width>
+    <height>512</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Masterdrez 3D</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Tablero</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="1" rowspan="11">
+         <widget class="MyOpengl" name="canvas" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="LCDNumber" name="Reloj_Amarillas">
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="LCDNumber" name="Reloj_Blancas">
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="LCDNumber" name="Reloj_Negras">
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0">
+         <widget class="LCDNumber" name="Reloj_Rojas">
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>82</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Blancas</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Negras</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>83</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Amarillas</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Rojas</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>83</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Consola</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="1">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>406</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="borrarConsola">
+          <property name="text">
+           <string>Limpiar</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QPlainTextEdit" name="Mensajes_Juego">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>648</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuJuego">
+    <property name="title">
+     <string>Juego</string>
+    </property>
+    <widget class="QMenu" name="menuPacto">
+     <property name="title">
+      <string>Pacto</string>
+     </property>
+     <addaction name="actionRemoci_n"/>
+     <addaction name="actionPaz"/>
+     <addaction name="actionAsimilaci_n"/>
+     <addaction name="actionDe_facto"/>
+    </widget>
+    <widget class="QMenu" name="menuIdioma">
+     <property name="title">
+      <string>Idioma</string>
+     </property>
+     <addaction name="actionEspa_ol"/>
+     <addaction name="actionIngles"/>
+    </widget>
+    <widget class="QMenu" name="menuColor">
+     <property name="title">
+      <string>Color</string>
+     </property>
+     <addaction name="actionBlanco_Azul"/>
+     <addaction name="actionBlanco_Verde"/>
+     <addaction name="actionBlanco_Marron"/>
+     <addaction name="actionBlanco_Gris"/>
+    </widget>
+    <widget class="QMenu" name="menuConvenio">
+     <property name="title">
+      <string>Convenio</string>
+     </property>
+     <addaction name="actionAislado"/>
+     <addaction name="actionAlianza"/>
+    </widget>
+    <widget class="QMenu" name="menuJugar">
+     <property name="title">
+      <string>Jugar</string>
+     </property>
+     <addaction name="actionPartida_Humano_M_quina_3"/>
+     <addaction name="actionPartida_Humano_Humano_3"/>
+    </widget>
+    <addaction name="menuConvenio"/>
+    <addaction name="menuPacto"/>
+    <addaction name="menuIdioma"/>
+    <addaction name="menuColor"/>
+    <addaction name="separator"/>
+    <addaction name="menuJugar"/>
+    <addaction name="separator"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <addaction name="actionLibro_de_ayuda"/>
+    <addaction name="separator"/>
+    <addaction name="actionAcerca_de"/>
+   </widget>
+   <widget class="QMenu" name="menuPiezas">
+    <property name="title">
+     <string>Piezas</string>
+    </property>
+    <addaction name="actionStauton"/>
+    <addaction name="actionEgipcias"/>
+   </widget>
+   <addaction name="menuJuego"/>
+   <addaction name="menuPiezas"/>
+   <addaction name="menuAyuda"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionAcerca_de">
+   <property name="text">
+    <string>Acerca de</string>
+   </property>
+  </action>
+  <action name="actionEspa_ol">
+   <property name="text">
+    <string>Español</string>
+   </property>
+  </action>
+  <action name="actionIngles">
+   <property name="text">
+    <string>Ingles</string>
+   </property>
+  </action>
+  <action name="actionBlanco_Azul">
+   <property name="text">
+    <string>Blanco-Azul</string>
+   </property>
+  </action>
+  <action name="actionBlanco_Verde">
+   <property name="text">
+    <string>Blanco-Verde</string>
+   </property>
+  </action>
+  <action name="actionBlanco_Marron">
+   <property name="text">
+    <string>Blanco-Marrón</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
+  <action name="actionLibro_de_ayuda">
+   <property name="text">
+    <string>Reglas del juego</string>
+   </property>
+  </action>
+  <action name="actionBlanco_Gris">
+   <property name="text">
+    <string>Blanco-Gris</string>
+   </property>
+  </action>
+  <action name="actionRemoci_n">
+   <property name="text">
+    <string>Remoción</string>
+   </property>
+  </action>
+  <action name="actionPaz">
+   <property name="text">
+    <string>Paz</string>
+   </property>
+  </action>
+  <action name="actionAsimilaci_n">
+   <property name="text">
+    <string>Asimilación</string>
+   </property>
+  </action>
+  <action name="actionDe_facto">
+   <property name="text">
+    <string>De facto</string>
+   </property>
+  </action>
+  <action name="actionAlianza">
+   <property name="text">
+    <string>Alianza</string>
+   </property>
+  </action>
+  <action name="actionAislado">
+   <property name="text">
+    <string>Aislado</string>
+   </property>
+  </action>
+  <action name="actionStauton">
+   <property name="text">
+    <string>Staunton</string>
+   </property>
+  </action>
+  <action name="actionEgipcias">
+   <property name="text">
+    <string>Egipcias</string>
+   </property>
+  </action>
+  <action name="actionPartida_Humano_M_quina_3">
+   <property name="text">
+    <string>Partida Humano - Máquina(3)</string>
+   </property>
+  </action>
+  <action name="actionPartida_Humano_Humano_3">
+   <property name="text">
+    <string>Partida Humano - Humano(3)</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>MyOpengl</class>
+   <extends>QWidget</extends>
+   <header location="global">myopengl.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>LCDNumber</class>
+   <extends>QFrame</extends>
+   <header location="global">lcdnumber.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

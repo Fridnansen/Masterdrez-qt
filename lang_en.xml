@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<errores>
+  <ERRORM>Error</ERRORM>
+  <BLANCAS>White kingdom</BLANCAS>
+  <AMARILLAS>Yellow kingdom</AMARILLAS>
+  <NEGRAS>Black kingdom</NEGRAS>
+  <ROJAS>Red kingdom</ROJAS>
+  <BLANCAS_EN_JAQUE>White kingdom in check</BLANCAS_EN_JAQUE>
+  <AMARILLAS_EN_JAQUE>Yellow kingdom in check</AMARILLAS_EN_JAQUE>
+  <NEGRAS_EN_JAQUE>Black kingdom in check</NEGRAS_EN_JAQUE>
+  <ROJAS_EN_JAQUE>Red kingdom in check</ROJAS_EN_JAQUE>
+  <BLANCAS_EN_JAQUE_MATE>White kingdom in checkmate</BLANCAS_EN_JAQUE_MATE>
+  <AMARILLAS_EN_JAQUE_MATE>Yellow kingdom in checkmate</AMARILLAS_EN_JAQUE_MATE>
+  <NEGRAS_EN_JAQUE_MATE>Black kingdom in checkmate</NEGRAS_EN_JAQUE_MATE>
+  <ROJAS_EN_JAQUE_MATE>Red kingdom in checkmate</ROJAS_EN_JAQUE_MATE>
+  <NO_SE_HA_SELECCIONADO_PIEZA>ERROR: Piece not selected</NO_SE_HA_SELECCIONADO_PIEZA>
+  <ERROR_SELECCIONANDO_PIEZA>ERROR: Selecting piece</ERROR_SELECCIONANDO_PIEZA>
+  <ERROR_SELECCIONANDO_CASILLA>ERROR: Selecting square</ERROR_SELECCIONANDO_CASILLA>
+  <REINO_BLANCO_INMOVILIZADO>White Kingdom can not move: Pass</REINO_BLANCO_INMOVILIZADO>
+  <REINO_AMARILLO_INMOVILIZADO>Yellow Kingdom can not move: Pass</REINO_AMARILLO_INMOVILIZADO>
+  <REINO_NEGRO_INMOVILIZADO>Black Kingdom can not move: Pass</REINO_NEGRO_INMOVILIZADO>
+  <REINO_ROJO_INMOVILIZADO>Red Kingdom can not move: Pass</REINO_ROJO_INMOVILIZADO>
+  <PARTIDA_COMENZADA>Game has started</PARTIDA_COMENZADA>
+  <EDICION_TABLERO>Chessboard edition</EDICION_TABLERO>
+  <EDITANDO_TABLERO_1>-- Any piece can be placed on any empty square</EDITANDO_TABLERO_1>
+  <EDITANDO_TABLERO_2>-- To delete a piece, place it out of the chessboard</EDITANDO_TABLERO_2>
+  <FIN_EDICION_TABLERO>End of chessboard edition</FIN_EDICION_TABLERO>
+  <PARTIDA_CONTINUA>Resuming game. Turn:</PARTIDA_CONTINUA>
+  <NO_SE_PUEDE_EDITAR>Chessboard can not be edited. It is necessary to start a game first</NO_SE_PUEDE_EDITAR>
+  <COMENZAR_PARTIDA>Start game</COMENZAR_PARTIDA>
+  <EDITAR_FIN_EDITAR>Edit game / End of edition</EDITAR_FIN_EDITAR>
+  <TURNO_BLANCAS>Actual turn: White Kingdom</TURNO_BLANCAS>
+  <TURNO_NEGRAS>Actual turn: Black Kingdom</TURNO_NEGRAS>
+  <TURNO_AMARILLAS>Actual turn: Yellow Kingdom</TURNO_AMARILLAS>
+  <TURNO_ROJAS>Actual turn: Red Kingdom</TURNO_ROJAS>
+  <VICTORIA>Game Over: Victory</VICTORIA>
+  <TABLAS>Game Over: Tie</TABLAS>
+  <TRITABLAS>Game Over: Tri-tie</TRITABLAS>
+  <MASTERTABLAS>Game Over: Master-tie</MASTERTABLAS>
+  <SOPLO_BLANCAS>White pieces drawn</SOPLO_BLANCAS>
+  <SOPLO_NEGRAS>Black pieces drawn</SOPLO_NEGRAS>
+  <SOPLO_ROJAS>Red pieces drawn</SOPLO_ROJAS>
+  <SOPLO_AMARILLAS>Yellow pieces drawn</SOPLO_AMARILLAS>
+  <CERRAR>Close</CERRAR>
+</errores>

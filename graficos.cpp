@@ -1,7 +1,5 @@
 #include "graficos.h"
 
-//==========================================================================
-
 GLfloat colWhite[] = {1.0f, 1.0f, 1.0f};
 GLfloat colBlack[] = {0.3f, 0.3f, 0.3f}; //{0, 0, 0};
 GLfloat colRed[] = {1.0f, 0.0f, 0.0f};
@@ -25,8 +23,6 @@ float seleccion[] = {0.8, 0.7, 0.3, 0};
 float movimientoCorrecto[] = {0.3, 0.8, 0.3, 0};
 float movimientoIncorrecto[] = {0.8, 0.3, 0.3, 0};
 float colortablero[4] = {0.5, 0.5, 0.8, 0};
-
-//==========================================================================
 
 Graficos Proyeccion;
 
@@ -235,62 +231,60 @@ void Graficos::dibujarPeon() {
 
   glPushMatrix();
   {
-    if (piezasStaunton) {
-      generarMallaPorRotacion(pPeon, ptos, 6, 6);
-      dibujarSuperficie(miNurb, ptos);
-      glRotatef(180, 0, 1, 0);
-      dibujarSuperficie(miNurb, ptos);
-      generarMallaPorRotacion(cPeon, ptos, 6, 6);
-      glTranslatef(0, 2.9, 0);
-      glScalef(3, 3, 3);
-      dibujarSuperficie(miNurb, ptos);
-      glRotatef(180, 0, 1, 0);
-      dibujarSuperficie(miNurb, ptos);
-    } else if (piezasEgipcias) {
-      // left side
-      glBegin(GL_TRIANGLES);
-      glNormal3f(-1.0f, 1.0f, 0.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, 1.0f);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(0.0f, PAWN_HEIGHT, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, -1.0f);
-      glEnd();
+    /*generarMallaPorRotacion(pPeon, ptos, 6, 6);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    glRotatef(180, 0, 1, 0);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    generarMallaPorRotacion(cPeon, ptos, 6, 6);
+    glTranslatef(0, 2.9, 0);
+    glScalef(3, 3, 3);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    glRotatef(180, 0, 1, 0);
+    dibujarSuperficie(miNurb, ptos, 6, 6);*/
 
-      // front side
-      glBegin(GL_TRIANGLES);
-      glNormal3f(0.0f, 1.0f, 1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, 1.0f);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(0.0f, PAWN_HEIGHT, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, 1.0f);
-      glEnd();
+    // left side
+    glBegin(GL_TRIANGLES);
+    glNormal3f(-1.0f, 1.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, 1.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.0f, PAWN_HEIGHT, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, -1.0f);
+    glEnd();
 
-      // right side
-      glBegin(GL_TRIANGLES);
-      glNormal3f(1.0f, 1.0f, 0.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, -1.0f);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(0.0f, PAWN_HEIGHT, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, 1.0f);
-      glEnd();
+    // front side
+    glBegin(GL_TRIANGLES);
+    glNormal3f(0.0f, 1.0f, 1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, 1.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.0f, PAWN_HEIGHT, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, 1.0f);
+    glEnd();
 
-      // back side
-      glBegin(GL_TRIANGLES);
-      glNormal3f(0.0f, 1.0f, -1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, -1.0f);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(0.0f, PAWN_HEIGHT, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, -1.0f);
-      glEnd();
-    }
+    // right side
+    glBegin(GL_TRIANGLES);
+    glNormal3f(1.0f, 1.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, -1.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.0f, PAWN_HEIGHT, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, 1.0f);
+    glEnd();
+
+    // back side
+    glBegin(GL_TRIANGLES);
+    glNormal3f(0.0f, 1.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, -1.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.0f, PAWN_HEIGHT, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, -1.0f);
+    glEnd();
   }
   glPopMatrix();
 }
@@ -299,135 +293,141 @@ void Graficos::dibujarTorre() {
 
   glPushMatrix();
   {
-    if (piezasStaunton) {
-      generarMallaPorRotacion(pTorre, ptos, 6, 6);
-      dibujarSuperficie(miNurb, ptos);
-      glRotatef(180, 0, 1, 0);
-      dibujarSuperficie(miNurb, ptos);
-      generarMallaPorRotacion(cTorre, ptos, 6, 6);
-      glTranslatef(0, 5, 0);
-      dibujarSuperficie(miNurb, ptos);
-      glRotatef(180, 0, 1, 0);
-      dibujarSuperficie(miNurb, ptos);
-      generarMallaPorRotacion(a, ptos, 6, 6);
-    } else if (piezasEgipcias) {
-      // lower left side
-      glBegin(GL_QUADS);
-      glNormal3f(-0.5f, 1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-ROOK_LOWER_WIDTH, 0.0f, -ROOK_LOWER_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-ROOK_LOWER_WIDTH, 0.0f, ROOK_LOWER_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-0.5f, ROOK_HEIGHT_MID, 0.5f);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-0.5f, ROOK_HEIGHT_MID, -0.5f);
-      glEnd();
+    /*generarMallaPorRotacion(pTorre, ptos, 6, 6);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    glRotatef(180, 0, 1, 0);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    generarMallaPorRotacion(cTorre, ptos, 6, 6);
+    glTranslatef(0, 5, 0);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    glRotatef(180, 0, 1, 0);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    generarMallaPorRotacion(a, ptos, 6, 6);*/
 
-      // upper left side
-      glBegin(GL_QUADS);
-      glNormal3f(-0.5, -1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-0.5f, ROOK_HEIGHT_MID, -0.5f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-0.5f, ROOK_HEIGHT_MID, 0.5f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, ROOK_UPPER_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, -ROOK_UPPER_WIDTH);
-      glEnd();
+    /* Este sombrero no va aqui...
+    glTranslatef(0, 3.8, 0);
+    glScalef(3, 2, 3);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    glRotatef(180, 0, 1, 0);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    */
 
-      // lower front side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, 1.0f, 0.5f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-ROOK_LOWER_WIDTH, 0.0f, ROOK_LOWER_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(ROOK_LOWER_WIDTH, 0.0f, ROOK_LOWER_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(0.5f, ROOK_HEIGHT_MID, 0.5f);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-0.5f, ROOK_HEIGHT_MID, 0.5f);
-      glEnd();
+    // lower left side
+    glBegin(GL_QUADS);
+    glNormal3f(-0.5f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-ROOK_LOWER_WIDTH, 0.0f, -ROOK_LOWER_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-ROOK_LOWER_WIDTH, 0.0f, ROOK_LOWER_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-0.5f, ROOK_HEIGHT_MID, 0.5f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-0.5f, ROOK_HEIGHT_MID, -0.5f);
+    glEnd();
 
-      // upper front side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, -1.0f, 0.5f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-0.5f, ROOK_HEIGHT_MID, 0.5f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(0.5f, ROOK_HEIGHT_MID, 0.5f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, ROOK_UPPER_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, ROOK_UPPER_WIDTH);
-      glEnd();
+    // upper left side
+    glBegin(GL_QUADS);
+    glNormal3f(-0.5, -1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-0.5f, ROOK_HEIGHT_MID, -0.5f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-0.5f, ROOK_HEIGHT_MID, 0.5f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, ROOK_UPPER_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, -ROOK_UPPER_WIDTH);
+    glEnd();
 
-      // lower right side
-      glBegin(GL_QUADS);
-      glNormal3f(0.5f, 1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(ROOK_LOWER_WIDTH, 0.0f, ROOK_LOWER_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(ROOK_LOWER_WIDTH, 0.0f, -ROOK_LOWER_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(0.5f, ROOK_HEIGHT_MID, -0.5f);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(0.5f, ROOK_HEIGHT_MID, 0.5f);
-      glEnd();
+    // lower front side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, 1.0f, 0.5f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-ROOK_LOWER_WIDTH, 0.0f, ROOK_LOWER_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(ROOK_LOWER_WIDTH, 0.0f, ROOK_LOWER_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(0.5f, ROOK_HEIGHT_MID, 0.5f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-0.5f, ROOK_HEIGHT_MID, 0.5f);
+    glEnd();
 
-      // upper right side
-      glBegin(GL_QUADS);
-      glNormal3f(0.5f, -1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(0.5f, ROOK_HEIGHT_MID, 0.5f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(0.5f, ROOK_HEIGHT_MID, -0.5f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, -ROOK_UPPER_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, ROOK_UPPER_WIDTH);
-      glEnd();
+    // upper front side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, -1.0f, 0.5f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-0.5f, ROOK_HEIGHT_MID, 0.5f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(0.5f, ROOK_HEIGHT_MID, 0.5f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, ROOK_UPPER_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, ROOK_UPPER_WIDTH);
+    glEnd();
 
-      // lower back side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, 1.0f, -0.5f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(ROOK_LOWER_WIDTH, 0.0f, -ROOK_LOWER_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-ROOK_LOWER_WIDTH, 0.0f, -ROOK_LOWER_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-0.5f, ROOK_HEIGHT_MID, -0.5f);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(0.5f, ROOK_HEIGHT_MID, -0.5f);
-      glEnd();
+    // lower right side
+    glBegin(GL_QUADS);
+    glNormal3f(0.5f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(ROOK_LOWER_WIDTH, 0.0f, ROOK_LOWER_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(ROOK_LOWER_WIDTH, 0.0f, -ROOK_LOWER_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(0.5f, ROOK_HEIGHT_MID, -0.5f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.5f, ROOK_HEIGHT_MID, 0.5f);
+    glEnd();
 
-      // upper back side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, -1.0f, -0.5f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(0.5f, ROOK_HEIGHT_MID, -0.5f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-0.5f, ROOK_HEIGHT_MID, -0.5f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, -ROOK_UPPER_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, -ROOK_UPPER_WIDTH);
-      glEnd();
+    // upper right side
+    glBegin(GL_QUADS);
+    glNormal3f(0.5f, -1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(0.5f, ROOK_HEIGHT_MID, 0.5f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(0.5f, ROOK_HEIGHT_MID, -0.5f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, -ROOK_UPPER_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, ROOK_UPPER_WIDTH);
+    glEnd();
 
-      // top plate
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, 1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, ROOK_UPPER_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, ROOK_UPPER_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, -ROOK_UPPER_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, -ROOK_UPPER_WIDTH);
-      glEnd();
-    }
+    // lower back side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, 1.0f, -0.5f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(ROOK_LOWER_WIDTH, 0.0f, -ROOK_LOWER_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-ROOK_LOWER_WIDTH, 0.0f, -ROOK_LOWER_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-0.5f, ROOK_HEIGHT_MID, -0.5f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.5f, ROOK_HEIGHT_MID, -0.5f);
+    glEnd();
+
+    // upper back side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, -1.0f, -0.5f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(0.5f, ROOK_HEIGHT_MID, -0.5f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-0.5f, ROOK_HEIGHT_MID, -0.5f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, -ROOK_UPPER_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, -ROOK_UPPER_WIDTH);
+    glEnd();
+
+    // top plate
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, ROOK_UPPER_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, ROOK_UPPER_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, -ROOK_UPPER_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-ROOK_UPPER_WIDTH, ROOK_HEIGHT_TOP, -ROOK_UPPER_WIDTH);
+    glEnd();
   }
   glPopMatrix();
 }
@@ -508,28 +508,34 @@ void Graficos::dibujarCabezaCaballo() {
 
 void Graficos::dibujarCaballo() {
 
+  /*glPushMatrix();
+  // Base de la pieza:
+  generarMallaPorRotacion(pCaballo, ptos, 6, 6);
+  dibujarSuperficie(miNurb, ptos, 6, 6);
+  glRotatef(180, 0, 1, 0);
+  dibujarSuperficie(miNurb, ptos, 6, 6);
+  // Adorno:
+  generarMallaPorRotacion(a, ptos, 6, 6);
+  glTranslatef(0, 1.5, 0);
+  glScalef(2.7, 2, 2.7);
+  dibujarSuperficie(miNurb, ptos, 6, 6);
+  glRotatef(180, 0, 1, 0);
+  dibujarSuperficie(miNurb, ptos, 6, 6);
+  // Cuerpo de la pieza:
+
+  // glTranslatef(-0.5, 2, 0); corregido en la segunda linea.
+  glTranslatef(0, 1, 0); // <<< aqui.
+  // glScalef(1.2, 1.2, 1.2); corregido el tamaño de la cabeza
+  glScalef(0.35, 0.35, 0.35); // aqui
+  glTranslatef(0, 0, 1);
+  dibujarCabezaCaballo();
+
+  glPopMatrix();*/
+
+  static GLUquadric *knightEye = gluNewQuadric();
+
   glPushMatrix();
-  if (piezasStaunton) {
-    // Base de la pieza:
-    generarMallaPorRotacion(pCaballo, ptos, 6, 6);
-    dibujarSuperficie(miNurb, ptos);
-    glRotatef(180, 0, 1, 0);
-    dibujarSuperficie(miNurb, ptos);
-    // Adorno:
-    generarMallaPorRotacion(a, ptos, 6, 6);
-    glTranslatef(0, 1.5, 0);
-    glScalef(2.7, 2, 2.7);
-    dibujarSuperficie(miNurb, ptos);
-    glRotatef(180, 0, 1, 0);
-    dibujarSuperficie(miNurb, ptos);
-    // Cuerpo de la pieza:
-    // glTranslatef(-0.5, 2, 0);  corregido en la segunda linea.
-    glTranslatef(0, 1, 0); // <<< aqui.
-    // glScalef(1.2, 1.2, 1.2);  corregido el tamaño de la cabeza
-    glScalef(0.35, 0.35, 0.35); // aqui
-    glTranslatef(0, 0, 1);
-    dibujarCabezaCaballo();
-  } else if (piezasEgipcias) {
+  {
     // lower left side
     glBegin(GL_QUADS);
     glNormal3f(-0.5f, 1.0f, 0.0f);
@@ -890,6 +896,21 @@ void Graficos::dibujarCaballo() {
                KNIGHT_HEIGHT_TOP + KNIGHT_HEAD_HEIGHT + KNIGHT_EAR_HEIGHT,
                KNIGHT_UPPER_WIDTH);
     glEnd();
+
+    // eyes
+    glPushMatrix();
+    glTranslatef(-(KNIGHT_UPPER_WIDTH), KNIGHT_HEIGHT_TOP + KNIGHT_HEAD_HEIGHT -
+                                            KNIGHT_EYE_SIZE * 0.3f,
+                 -KNIGHT_UPPER_WIDTH);
+    glScalef(0.12f, 0.1f, 0.12f);
+    gluSphere(knightEye, KNIGHT_EYE_SIZE, 64, 64);
+    glPopMatrix();
+
+    glTranslatef(KNIGHT_UPPER_WIDTH, KNIGHT_HEIGHT_TOP + KNIGHT_HEAD_HEIGHT -
+                                         KNIGHT_EYE_SIZE * 0.3f,
+                 -KNIGHT_UPPER_WIDTH);
+    glScalef(0.12f, 0.1f, 0.12f);
+    gluSphere(knightEye, KNIGHT_EYE_SIZE, 64, 64);
   }
   glPopMatrix();
 }
@@ -898,468 +919,461 @@ void Graficos::dibujarAlfil() {
 
   glPushMatrix();
   {
-    if (piezasStaunton) {
-      // cuerpo
-      generarMallaPorRotacion(pAlfil, ptos, 6, 6);
-      dibujarSuperficie(miNurb, ptos);
-      glRotatef(180, 0, 1, 0);
-      dibujarSuperficie(miNurb, ptos);
 
-      // cabeza
-      generarMallaPorRotacion(cPeon, ptos, 6, 6);
-      glTranslatef(0, 5.5, 0);
-      dibujarSuperficie(miNurb, ptos);
-      glRotatef(180, 0, 1, 0);
-      dibujarSuperficie(miNurb, ptos);
+    /*// cuerpo
+    generarMallaPorRotacion(pAlfil, ptos, 6, 6);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    glRotatef(180, 0, 1, 0);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
 
-      // disco
-      generarMallaPorRotacion(a, ptos, 6, 6);
-      // glTranslatef(0, 3.5, 0); corrección a -2
-      glTranslatef(0, -2, 0); //<<< aqui
-      glScalef(2.2, 2, 2.2);
-      dibujarSuperficie(miNurb, ptos);
-      glRotatef(180, 0, 1, 0);
-      dibujarSuperficie(miNurb, ptos);
+    // cabeza
+    generarMallaPorRotacion(cPeon, ptos, 6, 6);
+    glTranslatef(0, 5.5, 0);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    glRotatef(180, 0, 1, 0);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
 
-    } else if (piezasEgipcias) {
-      // left side
-      glBegin(GL_QUADS);
-      glNormal3f(-0.5f, 1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
-      glEnd();
+    // disco
+    generarMallaPorRotacion(a, ptos, 6, 6);
+    // glTranslatef(0, 3.5, 0); corrección a -2
+    glTranslatef(0, -2, 0); //<<< aqui
+    glScalef(2.2, 2, 2.2);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    glRotatef(180, 0, 1, 0);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    */
 
-      // front side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, 1.0f, 0.5f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
-      glEnd();
+    // left side
+    glBegin(GL_QUADS);
+    glNormal3f(-0.5f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
+    glEnd();
 
-      // right side
-      glBegin(GL_QUADS);
-      glNormal3f(0.5f, 1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
-      glEnd();
+    // front side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, 1.0f, 0.5f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
+    glEnd();
 
-      // back side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, 1.0f, -0.5f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
-      glEnd();
+    // right side
+    glBegin(GL_QUADS);
+    glNormal3f(0.5f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
+    glEnd();
 
-      // the diamond head
-      // lower left side
-      glBegin(GL_QUADS);
-      glNormal3f(-1.0f, -1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID,
-                 -BISHOP_HEAD_WIDTH);
-      glEnd();
+    // back side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, 1.0f, -0.5f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
+    glEnd();
 
-      // upper left side
-      glBegin(GL_TRIANGLES);
-      glNormal3f(-1.0f, 1.0f, 0.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(0.0f, BISHOP_HEIGHT_TOP, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID,
-                 -BISHOP_HEAD_WIDTH);
-      glEnd();
+    // the diamond head
+    // lower left side
+    glBegin(GL_QUADS);
+    glNormal3f(-1.0f, -1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, -BISHOP_HEAD_WIDTH);
+    glEnd();
 
-      // lower front side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, -1.0f, 1.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
-      glEnd();
+    // upper left side
+    glBegin(GL_TRIANGLES);
+    glNormal3f(-1.0f, 1.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.0f, BISHOP_HEIGHT_TOP, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, -BISHOP_HEAD_WIDTH);
+    glEnd();
 
-      // upper front side
-      glBegin(GL_TRIANGLES);
-      glNormal3f(0.0f, 1.0f, 1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(0.0f, BISHOP_HEIGHT_TOP, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
-      glEnd();
+    // lower front side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, -1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
+    glEnd();
 
-      // lower right side
-      glBegin(GL_QUADS);
-      glNormal3f(1.0f, -1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, -BISHOP_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
-      glEnd();
+    // upper front side
+    glBegin(GL_TRIANGLES);
+    glNormal3f(0.0f, 1.0f, 1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.0f, BISHOP_HEIGHT_TOP, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
+    glEnd();
 
-      // upper right side
-      glBegin(GL_TRIANGLES);
-      glNormal3f(1.0f, 1.0f, 0.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, -BISHOP_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(0.0f, BISHOP_HEIGHT_TOP, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
-      glEnd();
+    // lower right side
+    glBegin(GL_QUADS);
+    glNormal3f(1.0f, -1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, BISHOP_NECK_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, -BISHOP_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
+    glEnd();
 
-      // lower back side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, -1.0f, -1.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID,
-                 -BISHOP_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, -BISHOP_HEAD_WIDTH);
-      glEnd();
+    // upper right side
+    glBegin(GL_TRIANGLES);
+    glNormal3f(1.0f, 1.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, -BISHOP_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.0f, BISHOP_HEIGHT_TOP, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, BISHOP_HEAD_WIDTH);
+    glEnd();
 
-      // upper back side
-      glBegin(GL_TRIANGLES);
-      glNormal3f(0.0f, 1.0f, -1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID,
-                 -BISHOP_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(0.0f, BISHOP_HEIGHT_TOP, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, -BISHOP_HEAD_WIDTH);
-      glEnd();
-    }
+    // lower back side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, -1.0f, -1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-BISHOP_NECK_WIDTH, BISHOP_HEIGHT_MID, -BISHOP_NECK_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, -BISHOP_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, -BISHOP_HEAD_WIDTH);
+    glEnd();
+
+    // upper back side
+    glBegin(GL_TRIANGLES);
+    glNormal3f(0.0f, 1.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, -BISHOP_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.0f, BISHOP_HEIGHT_TOP, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(BISHOP_HEAD_WIDTH, BISHOP_HEAD_HEIGHT_MID, -BISHOP_HEAD_WIDTH);
+    glEnd();
   }
   glPopMatrix();
 }
 
 void Graficos::dibujarReina() {
+  static GLUquadric *queenSphere = gluNewQuadric();
 
   glPushMatrix();
   {
-    if (piezasStaunton) {
-      generarMallaPorRotacion(pReina, ptos, 6, 6);
-      dibujarSuperficie(miNurb, ptos);
-      glRotatef(180, 0, 1, 0);
-      dibujarSuperficie(miNurb, ptos);
-      generarMallaPorRotacion(cReina, ptos, 6, 6);
-      glTranslatef(0, 5, 0);
-      dibujarSuperficie(miNurb, ptos);
-      glRotatef(180, 0, 1, 0);
-      dibujarSuperficie(miNurb, ptos);
-    } else if (piezasEgipcias) {
-      // left side
-      glBegin(GL_QUADS);
-      glNormal3f(-0.5f, 1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
-      glEnd();
 
-      // front side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, 1.0f, 0.5f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
-      glEnd();
+    /*generarMallaPorRotacion(pReina, ptos, 6, 6);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    glRotatef(180, 0, 1, 0);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    generarMallaPorRotacion(cReina, ptos, 6, 6);
+    glTranslatef(0, 5, 0);
+    dibujarSuperficie(miNurb, ptos, 6, 6);
+    glRotatef(180, 0, 1, 0);
+    dibujarSuperficie(miNurb, ptos, 6, 6);*/
 
-      // right side
-      glBegin(GL_QUADS);
-      glNormal3f(0.5f, 1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
-      glEnd();
+    // left side
+    glBegin(GL_QUADS);
+    glNormal3f(-0.5f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
+    glEnd();
 
-      // back side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, 1.0f, -0.5f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
-      glEnd();
+    // front side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, 1.0f, 0.5f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
+    glEnd();
 
-      // the head
-      // lower left side
-      glBegin(GL_QUADS);
-      glNormal3f(-1.0f, -1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glEnd();
+    // right side
+    glBegin(GL_QUADS);
+    glNormal3f(0.5f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
+    glEnd();
 
-      // lower front side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, -1.0f, 1.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
-      glEnd();
+    // back side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, 1.0f, -0.5f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
+    glEnd();
 
-      // lower right side
-      glBegin(GL_QUADS);
-      glNormal3f(1.0f, -1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
-      glEnd();
+    // the head
+    // lower left side
+    glBegin(GL_QUADS);
+    glNormal3f(-1.0f, -1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glEnd();
 
-      // lower back side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, -1.0f, -1.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glEnd();
+    // lower front side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, -1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glEnd();
 
-      // top plate
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, 1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glEnd();
+    // lower right side
+    glBegin(GL_QUADS);
+    glNormal3f(1.0f, -1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, QUEEN_NECK_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glEnd();
 
-      // left triangles
-      glBegin(GL_TRIANGLES);
-      glNormal3f(-1.0f, 0.0f, 0.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH / 2.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
+    // lower back side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, -1.0f, -1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-QUEEN_NECK_WIDTH, QUEEN_HEIGHT_MID, -QUEEN_NECK_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glEnd();
 
-      glNormal3f(1.0f, 0.0f, 0.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH / 2.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    // top plate
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glEnd();
 
-      glNormal3f(-1.0f, 0.0f, 0.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP,
-                 -(QUEEN_HEAD_WIDTH / 2.0f));
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    // left triangles
+    glBegin(GL_TRIANGLES);
+    glNormal3f(-1.0f, 0.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH / 2.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
 
-      glNormal3f(1.0f, 0.0f, 0.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP,
-                 -(QUEEN_HEAD_WIDTH / 2.0f));
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
-      glEnd();
+    glNormal3f(1.0f, 0.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH / 2.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
 
-      // front triangle
-      glBegin(GL_TRIANGLES);
-      glNormal3f(0.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH / 2.0f, QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glNormal3f(-1.0f, 0.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP, -(QUEEN_HEAD_WIDTH / 2.0f));
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
 
-      glNormal3f(0.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH / 2.0f, QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glNormal3f(1.0f, 0.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP, -(QUEEN_HEAD_WIDTH / 2.0f));
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
+    glEnd();
 
-      glNormal3f(0.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-(QUEEN_HEAD_WIDTH / 2.0f), QUEEN_HEIGHT_TOP,
-                 QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    // front triangle
+    glBegin(GL_TRIANGLES);
+    glNormal3f(0.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH / 2.0f, QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
 
-      glNormal3f(0.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-(QUEEN_HEAD_WIDTH / 2.0f), QUEEN_HEIGHT_TOP,
-                 QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
-      glEnd();
+    glNormal3f(0.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH / 2.0f, QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
 
-      // right triangle
-      glBegin(GL_TRIANGLES);
-      glNormal3f(1.0f, 0.0f, 0.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH / 2.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
+    glNormal3f(0.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-(QUEEN_HEAD_WIDTH / 2.0f), QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
 
-      glNormal3f(-1.0f, 0.0f, 0.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH / 2.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glNormal3f(0.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-(QUEEN_HEAD_WIDTH / 2.0f), QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glEnd();
 
-      glNormal3f(1.0f, 0.0f, 0.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP,
-                 -(QUEEN_HEAD_WIDTH / 2.0f));
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
+    // right triangle
+    glBegin(GL_TRIANGLES);
+    glNormal3f(1.0f, 0.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH / 2.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
 
-      glNormal3f(-1.0f, 0.0f, 0.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP,
-                 -(QUEEN_HEAD_WIDTH / 2.0f));
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glEnd();
+    glNormal3f(-1.0f, 0.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP, QUEEN_HEAD_WIDTH / 2.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, QUEEN_HEAD_WIDTH);
 
-      // back triangle
-      glBegin(GL_TRIANGLES);
-      glNormal3f(0.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-(QUEEN_HEAD_WIDTH / 2.0f), QUEEN_HEIGHT_TOP,
-                 -QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glNormal3f(1.0f, 0.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP, -(QUEEN_HEAD_WIDTH / 2.0f));
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
 
-      glNormal3f(0.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-(QUEEN_HEAD_WIDTH / 2.0f), QUEEN_HEIGHT_TOP,
-                 -QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glNormal3f(-1.0f, 0.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, 0.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEIGHT_TOP, -(QUEEN_HEAD_WIDTH / 2.0f));
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glEnd();
 
-      glNormal3f(0.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH / 2.0f, QUEEN_HEIGHT_TOP, -QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    // back triangle
+    glBegin(GL_TRIANGLES);
+    glNormal3f(0.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-(QUEEN_HEAD_WIDTH / 2.0f), QUEEN_HEIGHT_TOP, -QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
 
-      glNormal3f(0.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(QUEEN_HEAD_WIDTH / 2.0f, QUEEN_HEIGHT_TOP, -QUEEN_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
-      glEnd();
-    }
+    glNormal3f(0.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-(QUEEN_HEAD_WIDTH / 2.0f), QUEEN_HEIGHT_TOP, -QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+
+    glNormal3f(0.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH / 2.0f, QUEEN_HEIGHT_TOP, -QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+
+    glNormal3f(0.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(QUEEN_HEAD_WIDTH / 2.0f, QUEEN_HEIGHT_TOP, -QUEEN_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(0.0f, QUEEN_HEAD_HEIGHT_MID, -QUEEN_HEAD_WIDTH);
+    glEnd();
+
+    // sphere
+    glTranslatef(0.0f, QUEEN_HEIGHT_MID + (QUEEN_HEAD_HEIGHT / 2.0f + 0.05f),
+                 0.0f);
+    glScalef(0.12f, 0.1f, 0.12f);
+    gluSphere(queenSphere, QUEEN_SPHERE_SIZE, 64, 64);
   }
   glPopMatrix();
 }
@@ -1368,330 +1382,325 @@ void Graficos::dibujarRey() {
 
   glPushMatrix();
   {
-    if (piezasStaunton) {
-      dibujarReina();
-      // arriba-abajo
-      glTranslatef(-0.25, 6.1, -0.25);
-      cubo(0.5, 1.7, 0.5);
-      // izquierda-derecha
-      // glTranslatef(-0.75, 6.8, -0.25); //correccion
-      glTranslatef(-0.50, 0.70, 0); // <<< aqui
-      cubo(1.5, 0.5, 0.5);
-    } else if (piezasEgipcias) {
-      // left side
-      glBegin(GL_QUADS);
-      glNormal3f(-0.5f, 1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
-      glEnd();
 
-      // front side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, 1.0f, 0.5f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
-      glEnd();
+    /*dibujarReina();
 
-      // right side
-      glBegin(GL_QUADS);
-      glNormal3f(0.5f, 1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, 1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
-      glEnd();
+    // arriba-abajo
+    glTranslatef(-0.25, 6.1, -0.25);
+    cubo(0.5, 1.7, 0.5);
 
-      // back side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, 1.0f, -0.5f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(1.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-1.0f, 0.0f, -1.0f);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
-      glEnd();
+    // izquierda-derecha
+    // glTranslatef(-0.75, 6.8, -0.25); //correccion
+    glTranslatef(-0.50, 0.70, 0); // <<< aqui
+    cubo(1.5, 0.5, 0.5);*/
 
-      // the head
-      // lower left side
-      glBegin(GL_QUADS);
-      glNormal3f(-1.0f, -1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, KING_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, -KING_HEAD_WIDTH);
-      glEnd();
+    // left side
+    glBegin(GL_QUADS);
+    glNormal3f(-0.5f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
+    glEnd();
 
-      // lower front side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, -1.0f, 1.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, KING_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, KING_HEAD_WIDTH);
-      glEnd();
+    // front side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, 1.0f, 0.5f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
+    glEnd();
 
-      // lower right side
-      glBegin(GL_QUADS);
-      glNormal3f(1.0f, -1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, -KING_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, KING_HEAD_WIDTH);
-      glEnd();
+    // right side
+    glBegin(GL_QUADS);
+    glNormal3f(0.5f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, 1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
+    glEnd();
 
-      // lower back side
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, -1.0f, -1.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, -KING_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, -KING_HEAD_WIDTH);
-      glEnd();
+    // back side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, 1.0f, -0.5f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(1.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-1.0f, 0.0f, -1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
+    glEnd();
 
-      // top plate
-      glBegin(GL_QUADS);
-      glNormal3f(0.0f, 1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, KING_HEAD_WIDTH);
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, KING_HEAD_WIDTH);
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, -KING_HEAD_WIDTH);
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, -KING_HEAD_WIDTH);
-      glEnd();
+    // the head
+    // lower left side
+    glBegin(GL_QUADS);
+    glNormal3f(-1.0f, -1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, KING_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, -KING_HEAD_WIDTH);
+    glEnd();
 
-      // cross
-      // horizontal beam
-      glBegin(GL_QUADS);
-      // left plate
-      glNormal3f(-1.0f, 0.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-KING_CROSS_SIZE,
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-KING_CROSS_SIZE,
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
-                 -(KING_CROSS_SIZE / 2.0f));
+    // lower front side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, -1.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, KING_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, KING_HEAD_WIDTH);
+    glEnd();
 
-      // right plate
-      glNormal3f(1.0f, 0.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(KING_CROSS_SIZE,
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(KING_CROSS_SIZE,
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
-                 (KING_CROSS_SIZE / 2.0f));
+    // lower right side
+    glBegin(GL_QUADS);
+    glNormal3f(1.0f, -1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, KING_NECK_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, -KING_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, KING_HEAD_WIDTH);
+    glEnd();
 
-      // front plate
-      glNormal3f(0.0f, 0.0f, 1.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-KING_CROSS_SIZE,
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(KING_CROSS_SIZE,
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
-                 (KING_CROSS_SIZE / 2.0f));
+    // lower back side
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, -1.0f, -1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-KING_NECK_WIDTH, KING_HEIGHT_MID, -KING_NECK_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, -KING_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, -KING_HEAD_WIDTH);
+    glEnd();
 
-      // back plate
-      glNormal3f(0.0f, 0.0f, -1.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(KING_CROSS_SIZE,
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-KING_CROSS_SIZE,
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
-                 -(KING_CROSS_SIZE / 2.0f));
+    // top plate
+    glBegin(GL_QUADS);
+    glNormal3f(0.0f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, KING_HEAD_WIDTH);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, KING_HEAD_WIDTH);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, -KING_HEAD_WIDTH);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-KING_HEAD_WIDTH, KING_HEAD_HEIGHT_MID, -KING_HEAD_WIDTH);
+    glEnd();
 
-      // bottom plate
-      glNormal3f(0.0f, -1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-KING_CROSS_SIZE,
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(KING_CROSS_SIZE,
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(KING_CROSS_SIZE,
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-KING_CROSS_SIZE,
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
-                 (KING_CROSS_SIZE / 2.0f));
+    // cross
+    // horizontal beam
+    glBegin(GL_QUADS);
+    // left plate
+    glNormal3f(-1.0f, 0.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-KING_CROSS_SIZE,
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-KING_CROSS_SIZE,
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
+               -(KING_CROSS_SIZE / 2.0f));
 
-      // top plate
-      glNormal3f(0.0f, 1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
-                 (KING_CROSS_SIZE / 2.0f));
-      glEnd();
+    // right plate
+    glNormal3f(1.0f, 0.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
+               (KING_CROSS_SIZE / 2.0f));
 
-      // vertical beam
-      glBegin(GL_QUADS);
-      // left plate
-      glNormal3f(-1.0f, 0.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-(KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-(KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-(KING_CROSS_SIZE / 2.5f),
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-(KING_CROSS_SIZE / 2.5f),
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
-                 -(KING_CROSS_SIZE / 2.0f));
+    // front plate
+    glNormal3f(0.0f, 0.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-KING_CROSS_SIZE,
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
+               (KING_CROSS_SIZE / 2.0f));
 
-      // right plate
-      glNormal3f(1.0f, 0.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f((KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f((KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f((KING_CROSS_SIZE / 2.5f),
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f((KING_CROSS_SIZE / 2.5f),
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
-                 (KING_CROSS_SIZE / 2.0f));
+    // back plate
+    glNormal3f(0.0f, 0.0f, -1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-KING_CROSS_SIZE,
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
+               -(KING_CROSS_SIZE / 2.0f));
 
-      // front plate
-      glNormal3f(0.0f, 0.0f, 1.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-(KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f((KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f((KING_CROSS_SIZE / 2.5f),
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-(KING_CROSS_SIZE / 2.5f),
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
-                 (KING_CROSS_SIZE / 2.0f));
+    // bottom plate
+    glNormal3f(0.0f, -1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-KING_CROSS_SIZE,
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-KING_CROSS_SIZE,
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE / 2.0f),
+               (KING_CROSS_SIZE / 2.0f));
 
-      // back plate
-      glNormal3f(0.0f, 0.0f, -1.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f((KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f(-(KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f(-(KING_CROSS_SIZE / 2.5f),
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f((KING_CROSS_SIZE / 2.5f),
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
-                 -(KING_CROSS_SIZE / 2.0f));
+    // top plate
+    glNormal3f(0.0f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(KING_CROSS_SIZE, KING_HEAD_HEIGHT_MID + KING_CROSS_SIZE,
+               (KING_CROSS_SIZE / 2.0f));
+    glEnd();
 
-      // top plate
-      glNormal3f(0.0f, 1.0f, 0.0f);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3f(-(KING_CROSS_SIZE / 2.5f),
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 0.0f);
-      glVertex3f((KING_CROSS_SIZE / 2.5f),
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
-                 (KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(1.0f, 1.0f);
-      glVertex3f((KING_CROSS_SIZE / 2.5f),
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
-                 -(KING_CROSS_SIZE / 2.0f));
-      glTexCoord2f(0.0f, 1.0f);
-      glVertex3f(-(KING_CROSS_SIZE / 2.5f),
-                 KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
-                 -(KING_CROSS_SIZE / 2.0f));
-      glEnd();
-    }
+    // vertical beam
+    glBegin(GL_QUADS);
+    // left plate
+    glNormal3f(-1.0f, 0.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-(KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-(KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-(KING_CROSS_SIZE / 2.5f),
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-(KING_CROSS_SIZE / 2.5f),
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
+               -(KING_CROSS_SIZE / 2.0f));
+
+    // right plate
+    glNormal3f(1.0f, 0.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f((KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f((KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f((KING_CROSS_SIZE / 2.5f),
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f((KING_CROSS_SIZE / 2.5f),
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
+               (KING_CROSS_SIZE / 2.0f));
+
+    // front plate
+    glNormal3f(0.0f, 0.0f, 1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-(KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f((KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f((KING_CROSS_SIZE / 2.5f),
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-(KING_CROSS_SIZE / 2.5f),
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
+               (KING_CROSS_SIZE / 2.0f));
+
+    // back plate
+    glNormal3f(0.0f, 0.0f, -1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f((KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-(KING_CROSS_SIZE / 2.5f), KING_HEAD_HEIGHT_MID,
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(-(KING_CROSS_SIZE / 2.5f),
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f((KING_CROSS_SIZE / 2.5f),
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
+               -(KING_CROSS_SIZE / 2.0f));
+
+    // top plate
+    glNormal3f(0.0f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-(KING_CROSS_SIZE / 2.5f),
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f((KING_CROSS_SIZE / 2.5f),
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
+               (KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f((KING_CROSS_SIZE / 2.5f),
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
+               -(KING_CROSS_SIZE / 2.0f));
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-(KING_CROSS_SIZE / 2.5f),
+               KING_HEAD_HEIGHT_MID + (KING_CROSS_SIZE * 1.5f),
+               -(KING_CROSS_SIZE / 2.0f));
+    glEnd();
   }
   glPopMatrix();
 }
@@ -1809,8 +1818,7 @@ void Graficos::dibujarPieza(int xact, int yact, int xfin, int yfin) {
 }
 
 /**
-* Dibuja las piezas del tablero en la posicion donde se encuentren en el
-*mismo.
+* Dibuja las piezas del tablero en la posicion donde se encuentren en el mismo.
 *
 */
 void Graficos::dibujarPiezas() {

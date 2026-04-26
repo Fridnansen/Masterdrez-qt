@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<errores>
+  <ERRORM>Error</ERRORM>
+  <BLANCAS>Reino blanco</BLANCAS>
+  <AMARILLAS>Reino amarillo</AMARILLAS>
+  <NEGRAS>Reino negro</NEGRAS>
+  <ROJAS>Reino rojo</ROJAS>
+  <BLANCAS_EN_JAQUE>Blancas en Jaque</BLANCAS_EN_JAQUE>
+  <AMARILLAS_EN_JAQUE>Amarillas en Jaque</AMARILLAS_EN_JAQUE>
+  <NEGRAS_EN_JAQUE>Negras en Jaque</NEGRAS_EN_JAQUE>
+  <ROJAS_EN_JAQUE>Rojas en Jaque</ROJAS_EN_JAQUE>
+  <BLANCAS_EN_JAQUE_MATE>Blancas en Jaque mate</BLANCAS_EN_JAQUE_MATE>
+  <AMARILLAS_EN_JAQUE_MATE>Amarillas en Jaque mate</AMARILLAS_EN_JAQUE_MATE>
+  <NEGRAS_EN_JAQUE_MATE>Negras en Jaque mate</NEGRAS_EN_JAQUE_MATE>
+  <ROJAS_EN_JAQUE_MATE>Rojas en Jaque mate</ROJAS_EN_JAQUE_MATE>
+  <NO_SE_HA_SELECCIONADO_PIEZA>ERROR: No se ha seleccionado pieza</NO_SE_HA_SELECCIONADO_PIEZA>
+  <ERROR_SELECCIONANDO_PIEZA>ERROR: Seleccionando pieza</ERROR_SELECCIONANDO_PIEZA>
+  <ERROR_SELECCIONANDO_CASILLA>ERROR: seleccionando casilla</ERROR_SELECCIONANDO_CASILLA>
+  <REINO_BLANCO_INMOVILIZADO>Reino Blanco Inmovilizado: Pase</REINO_BLANCO_INMOVILIZADO>
+  <REINO_AMARILLO_INMOVILIZADO>Reino Amarillo Inmovilizado: Pase</REINO_AMARILLO_INMOVILIZADO>
+  <REINO_NEGRO_INMOVILIZADO>Reino Negro Inmovilizado: Pase</REINO_NEGRO_INMOVILIZADO>
+  <REINO_ROJO_INMOVILIZADO>Reino Rojo Inmovilizado: Pase</REINO_ROJO_INMOVILIZADO>
+  <PARTIDA_COMENZADA>La Partida ha comenzado</PARTIDA_COMENZADA>
+  <EDICION_TABLERO>Editando tablero:</EDICION_TABLERO>
+  <EDITANDO_TABLERO_1>-- Se puede colocar cualquier ficha en cualquier casilla no ocupada</EDITANDO_TABLERO_1>
+  <EDITANDO_TABLERO_2>-- Para eliminar una ficha basta con situarla fuera del tablero</EDITANDO_TABLERO_2>
+  <FIN_EDICION_TABLERO>Fin de Edicion de tablero</FIN_EDICION_TABLERO>
+  <PARTIDA_CONTINUA>La Partida continua. Turno:</PARTIDA_CONTINUA>
+  <NO_SE_PUEDE_EDITAR>No se puede editar tablero. Es necesario comenzar antes una partida.</NO_SE_PUEDE_EDITAR>
+  <COMENZAR_PARTIDA>Comenzar Partida</COMENZAR_PARTIDA>
+  <EDITAR_FIN_EDITAR>Editar / Fin Editar</EDITAR_FIN_EDITAR>
+  <TURNO_BLANCAS>Turno Actual: Reino Blanco</TURNO_BLANCAS>
+  <TURNO_NEGRAS>Turno Actual: Reino Negro</TURNO_NEGRAS>
+  <TURNO_AMARILLAS>Turno Actual: Reino Amarillo</TURNO_AMARILLAS>
+  <TURNO_ROJAS>Turno Actual: Reino Rojo</TURNO_ROJAS>
+  <VICTORIA>Final: Victoria</VICTORIA>
+  <TABLAS>Final: Tablas</TABLAS>
+  <TRITABLAS>Final: Tritablas</TRITABLAS>
+  <MASTERTABLAS>Final: Mastertablas</MASTERTABLAS>
+  <SOPLO_BLANCAS>Piezas blancas sopladas</SOPLO_BLANCAS>
+  <SOPLO_NEGRAS>Piezas negras sopladas</SOPLO_NEGRAS>
+  <SOPLO_ROJAS>Piezas rojas sopladas</SOPLO_ROJAS>
+  <SOPLO_AMARILLAS>Piezas amarillas sopladas</SOPLO_AMARILLAS>
+  <CERRAR>Salir</CERRAR>
+</errores>
